@@ -1,0 +1,148 @@
+/* RESET & BODY SETUP */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  justify-content: flex-start;
+  overflow-x: hidden; /* prevents horizontal zoom on mobile */
+  background: url("landscape.jpg") center/cover no-repeat fixed; /* background image fixed, full screen */
+}
+
+/* STICKER GIF */
+.stick img {
+  height: 100px; /* responsive height */
+  margin-top: 20px;
+}
+
+@font-face {
+  font-family: "jc";
+  src: url("poppinsitalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: cj;
+  src: url("Chewy-Regular.ttf") format("truetype");
+}
+
+.text1 {
+  color: red;
+  font-size: 30px;
+  font-family: "cj", sans-serif;
+}
+.text2 {
+  color: purple;
+  font-size: 26px;
+  font-family: "cj", sans-serif;
+}
+
+.text3 {
+  font-family: "jc", sans-serif;
+  font-size: 11px;
+}
+.text1,
+.text2,
+.text3 {
+  margin: 5px 0;
+  text-align: center; /* relative font size, mobile-friendly */
+}
+
+/* TYPING ANIMATION */
+.text3 {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  animation: typing 6s steps(50) infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 41ch;
+  }
+  60% {
+    width: 41ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+.button-container {
+  display: flex; /* align horizontally */
+  justify-content: center; /* center sa page */
+  gap: 20px; /* space sa pagitan ng buttons */
+  margin-top: 20px; /* space mula sa text sa taas */
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* BUTTONS */
+.button1,
+.button2 {
+  padding: 10px 25px;
+  color: #ffd700;
+  border: 3px solid #ffd700;
+  border-radius: 50px;
+  background-color: purple;
+  box-shadow: 0px 4px 8px lightblue;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popUp 0.6 ease forwards;
+}
+
+/* Hover + touch */
+.button1:hover,
+.button1:active,
+.button2:hover,
+.button2:active {
+  background-color: #ffd700;
+  color: purple;
+}
+
+.button1 {
+  animation-delay: 0.3s; /* unang button lumabas */
+}
+
+.button2 {
+  animation-delay: 0.6s; /* pangalawang button lumabas */
+}
+
+/* RESPONSIVE TIP: MOBILE */
+@media (max-width: 768px) {
+  .stick img {
+    height: 80px;
+    margin-top: 15px;
+  }
+
+  .text1,
+  .text2,
+  .text3 {
+    font-size: 1rem;
+  }
+
+  .button1,
+  .button2 {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}

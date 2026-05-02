@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("landscape.jpg") center/cover no-repeat fixed;
+}
+
+@font-face {
+  font-family: "jc";
+  src: url("poppinsitalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "cj";
+  src: url("Chewy-Regular.ttf") format("truetype");
+}
+
+.letters {
+  text-align: center;
+  margin-top: 1px;
+}
+
+.letter1 {
+  font-family: "cj", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.letter2 {
+  font-family: "jc", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: purple;
+}
+
+/* GRID LAYOUT */
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  gap: 20px 40px;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* TRIANGLE EFFECT (center yung 3rd box) */
+.gifts a:nth-child(3) {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-20px);
+}
+
+/* BOX STYLE */
+.gift-box {
+  width: 150px;
+  height: 150px;
+  border: 3px solid purple;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+
+  /* animation default state */
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popUp 0.6s ease forwards;
+}
+
+.gift-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HOVER / TOUCH EFFECT */
+.gift-box:hover,
+.gift-box:active {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .gifts {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* ANIMATION */
+@keyframes popUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ANIMATION DELAYS */
+.gifts a:nth-child(1) .gift-box {
+  animation-delay: 0.3s;
+}
+
+.gifts a:nth-child(2) .gift-box {
+  animation-delay: 0.6s;
+}
+
+.gifts a:nth-child(3) .gift-box {
+  animation-delay: 0.9s;
+}
+
+.gifts a:nth-child(4) .gift-box {
+  animation-delay: 1.2s;
+}
